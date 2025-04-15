@@ -1,0 +1,33 @@
+<%- layout("layouts/boilerplate.ejs") %>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Live Face Scan</h1>
+    <p class="text-center text-muted mb-4">Use your webcam to scan your face.</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <!-- Webcam Video Stream -->
+            <video id="video" width="100%" height="auto" autoplay playsinline class="rounded shadow-sm border"></video>
+
+            <div class="my-3">
+                <button id="startCamera" class="btn btn-outline-primary">Start Camera</button>
+                <button id="capture" class="btn btn-primary ms-2" disabled>Capture</button>
+                <button id="stopCamera" class="btn btn-outline-danger ms-2" disabled>Stop Camera</button>
+            </div>
+
+            <!-- Captured Image Preview -->
+            <canvas id="canvas" style="display: none;"></canvas>
+            <img id="capturedImage" class="img-fluid rounded mt-3 shadow" style="display: none;" />
+
+            <!-- Optional: Upload button -->
+            <form method="POST" action="/process-scan">
+                <input type="hidden" id="capturedData" name="capturedData">
+                <button type="submit" class="btn btn-success mt-3" id="uploadBtn" style="display: none;">
+                  Upload & Analyze
+                </button>
+              </form>
+              
+        </div>
+    </div>
+</div>
+
+
