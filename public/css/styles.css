@@ -1,43 +1,93 @@
+/* Primary Colors
+--primary-green: #006400;
+--accent-gold: #FFD700;
+--highlight-teal: #008080;
+rgba(2, 79, 44, 0.665)
+#8beb9b78
+/* Neutral Colors */
+/* --charcoal-gray: #333333;
+--light-gray: #F5F5F5;
+--white: #FFFFFF; */
+
+
 body{
+    background-color:#F5F5F5 ;
+    z-index: -1;
     font-family: "Plus Jakarta Sans", serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: #ffffff;
 } 
 
+.bg-layer {
+    background-image: url('/images/bg.webp');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+  }
+  
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* 60% dark tint */
+    z-index: -1;
+  }
+
+.scan-bg{
+    background-image: url('/images/scan-bg.webp');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+  
+.scan-bg-ol{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* 60% dark tint */
+    z-index: -1;
+}
 
 .container{
     flex: 1;
 }
 .navbar{
-    height: 5rem;
-    background-color: rgba(2, 79, 44, 0.665) !important;
+    height: 5rem;   
+    background-color: #006400 !important;
+    opacity: 0.8;
 }
 
 .bi-scissors{
-    color: black;
+    color:#008080;
 }
 /* .fa-compass{
     font-size: 2rem;
     color: #103118;
 } */
+.navbar-brand{
+    color: white !important;
+}
 
 .nav-link{
-    color: #222222 !important;
+    color: white !important;
 }
 
 /* footer */
-.footer{
-    position: absolute;
-    bottom: 0; 
+.footer {
     width: 100%;
     text-align: center;
-    
-}
+    margin-top: auto; /* pushes footer to bottom if using flex layout */
+    opacity: 1;
+  }
 .f-info{
     text-align: center;
     display: flex;
-    background-color: rgba(2, 79, 44, 0.665) !important;
+    background-color: #333333 !important;
+    color: white;
     height:8rem;
     flex-wrap: wrap;
     justify-content: center;
@@ -45,7 +95,7 @@ body{
 }
 .f-info-links a{
     text-decoration: none;
-    color: #222222;
+    color: #ffffff;
 }
 
 
@@ -72,4 +122,34 @@ body{
     padding: 10px;
     margin-top: 10px;
   }
-  
+
+.scan-text{
+    color: rgb(255, 255, 255)  !important;
+}
+.scan-btn{
+    background-color: #FFD700;
+    color:#333333 ;
+}
+
+.scanpage-btn{
+    background-color: #FFD700;
+    color:#333333 ;
+}
+
+#capture{
+    background-color: #FFD700;
+    color:#333333 ; 
+}
+#stopCamera{
+    background-color: #FFD700;
+    color:#333333 ; 
+}
+  /* results.ejs */
+
+.card{
+    background-color:rgba(3, 103, 58, 0.488) !important;
+}
+
+.hair-care{
+    background-color:rgba(3, 103, 58, 0.488) !important;
+}

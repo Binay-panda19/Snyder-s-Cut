@@ -1,22 +1,65 @@
 <%- layout("layouts/boilerplate.ejs") %>
-<div class="container my-5">
-    <h1 class="text-center mb-4">Suggested Hairstyles</h1>
-    <p class="text-center text-muted mb-4">Based on your face shape: <strong><%= faceShape %></strong></p>
-    
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h4 class="text-center">Recommended Hairstyles:</h4>
-            <ul class="list-group">
-                <% suggestions.forEach((hairstyle) => { %>
-                    <li class="list-group-item"><%= hairstyle %></li>
-                <% }); %>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="text-center mt-4">
-        <a href="/scan" class="btn btn-outline-primary">Scan Again</a>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNYDER's CUT - Hairstyles</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold text-center mb-10 text-gray-800">Recommended Hairstyles</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% const hairstyles = [
+        { name: "Pompadour", image: "/images/Pompadour.jpg", description: "Voluminous on top with short sides, great for oval or square faces." },
+        { name: "Buzz Cut", image: "/images/Buzz-Cut.webp", description: "Low maintenance and sharp. Ideal for round and oval face shapes." },
+        { name: "Undercut", image: "/images/Undercut.webp", description: "Shaved sides with longer top; suits heart and square faces." },
+        { name: "Fade", image: "/images/Fade.webp", description: "Tapered sides blending into the top; versatile for all face shapes." },
+        { name: "Quiff", image: "/images/Quiff.webp", description: "Stylish and voluminous; great for oval and round faces." },
+        { name: "Crew Cut", image: "/images/Crew Cut.webp", description: "Neat and military-inspired; fits oval and square faces well." },
+        { name: "Side Part", image: "/images/Side Part.webp", description: "Classic gentleman look; suits almost every face shape." },
+        { name: "Man Bun", image: "/images/Man Bun.webp", description: "Trendy for long hair lovers; fits oblong and rectangular faces." },
+        { name: "Caesar Cut", image: "/images/Caesar Cut.webp", description: "Fringed cut with short length; best for rectangular and oval faces." },
+        { name: "French Crop", image: "/images/French Crop.webp", description: "Modern and textured; good for round and diamond face shapes." },
+        { name: "Long Waves", image: "/images/Long Waves.webp", description: "Casual waves; ideal for oblong or oval face shapes." },
+        { name: "Spiky Hair", image: "/images/Spiky Hair.webp", description: "Edgy and bold; suits round and oval faces." }
+      ]; %>
+
+      <% hairstyles.forEach(style => { %>
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card">
+          <img src="<%= style.image %>" alt="<%= style.name %>" class="w-full h-75 object-cover" />
+          <div class="p-4">
+            <h2 class="text-xl font-bold text-gray-800 mb-2"><%= style.name %></h2>
+            <p class="text-gray-600 text-sm"><%= style.description %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <div class="mt-16 bg-white rounded-xl shadow-md p-6 max-w-4xl mx-auto hair-care">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800 text-center">Hair Care Tips</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Wash your hair 2-3 times a week to retain natural oils.</li>
+        <li>Use a sulfate-free shampoo for healthier hair.</li>
+        <li>Trim your hair regularly to avoid split ends.</li>
+        <li>Avoid excessive heat styling to prevent damage.</li>
+        <li>Eat a balanced diet for natural hair growth.</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
