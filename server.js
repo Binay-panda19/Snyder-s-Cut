@@ -92,7 +92,7 @@ app.get("/scan",(req,res)=>{
     res.render("listings/scan.ejs")
 });
 
-app.get("/results",(req,res)=>{
+app.post("/results",(req,res)=>{
     res.render("listings/results.ejs");
 });
 
